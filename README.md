@@ -1,47 +1,40 @@
-# Data-Science-with-Python-Project-One
-This repository contains Data Science with python  project datasets
-DESCRIPTION
+# MovieLens Exploratory Analysis and Rating Models
 
-# Background of Problem Statement :
+A 2019 learning project in a fork of [Simplilearn-Edu/Data-Science-with-Python-Project-One](https://github.com/Simplilearn-Edu/Data-Science-with-Python-Project-One).
 
-The GroupLens Research Project is a research group in the Department of Computer Science and Engineering at the University of Minnesota. Members of the GroupLens Research Project are involved in many research projects related to the fields of information filtering, collaborative filtering, and recommender systems. The project is led by professors John Riedl and Joseph Konstan. The project began to explore automated collaborative filtering in 1992 but is most well known for its worldwide trial of an automated collaborative filtering system for Usenet news in 1996. Since then the project has expanded its scope to research overall information by filtering solutions, integrating into content-based methods, as well as, improving current collaborative filtering technology.
+**Razan Alsulieman's contribution:** the [MovieLens case-study notebook](DSProjectOne_MovielensCaseStudy.ipynb) and expanded README. Simplilearn supplied the educational project and dataset archive; GroupLens supplied the MovieLens data.
 
-# Problem Objective :
+## Workflow
 
-Here, we ask you to perform the analysis using the Exploratory Data Analysis technique. You need to find features affecting the ratings of any particular movie and build a model to predict the movie ratings.
+The notebook joins movie, rating, and user tables; explores age groups, movie-rating distributions, and viewership counts; one-hot encodes genres; and fits random-forest models using age, occupation, and genre features.
 
-# Domain: Entertainment
+The exploratory workflows include a `RandomForestRegressor` and a later feature-selection branch using `RandomForestClassifier`. Their outputs measure different tasks: regression R² and classification accuracy. Full steps, figures, and results remain in the original notebook.
 
-# Analysis Tasks to be performed:
+## Files and data
 
-1. Import the three datasets
-2. Create a new dataset [Master_Data] with the following columns MovieID Title UserID Age Gender Occupation Rating. (Hint: (i) 3. Merge two tables at a time. (ii) Merge the tables using two primary keys MovieID & UserId)
-# Explore the datasets using visual representations (graphs or tables), also include your comments on the following:
-1. User Age Distribution
-2. User rating of the movie “Toy Story”
-3. Top 25 movies by viewership rating
-4. Find the ratings for all the movies reviewed by for a particular user of user id = 2696
+| File | Purpose |
+| --- | --- |
+| [DSProjectOne_MovielensCaseStudy.ipynb](DSProjectOne_MovielensCaseStudy.ipynb) | Notebook added by Razan Alsulieman in June 2019 |
+| `Data science with Python 1.zip` | Archive inherited from Simplilearn; contains `movies.dat`, `ratings.dat`, and `users.dat` |
 
-# Feature Engineering:
-# Use column genres:
+The data correspond to [MovieLens 1M](https://grouplens.org/datasets/movielens/1m/): 1,000,209 ratings from 6,040 users, with anonymous IDs and demographic categories.
 
-- Find out all the unique genres (Hint: split the data in column genre making a list and then process the data to find out only the unique categories of genres)
-- Create a separate column for each genre category with a one-hot encoding ( 1 and 0) whether or not the movie belongs to that genre. 
-- Determine the features affecting the ratings of any particular movie.
-- Develop an appropriate model to predict the movie ratings
+## Open the notebook
 
-# Dataset Description :
+With Jupyter installed:
 
-These files contain 1,000,209 anonymous ratings of approximately 3,900 movies made by 6,040 MovieLens users who joined MovieLens in 2000.
+```bash
+git clone https://github.com/RazanAlsulieman/Data-Science-with-Python-Project-One.git
+cd Data-Science-with-Python-Project-One
+jupyter notebook DSProjectOne_MovielensCaseStudy.ipynb
+```
 
-# Ratings.dat
-    Format - UserID::MovieID::Rating::Timestamp
+For execution in a working copy, replace the three author-specific input paths with your authorized local MovieLens paths and match the filename `users.dat`.
 
-# Users.dat
-Format -  UserID::Gender::Age::Occupation::Zip-code
+**Dependencies:** NumPy, pandas, Matplotlib, Seaborn, scikit-learn, and Jupyter. The notebook records Python 3.7.1 and uses legacy APIs, including pandas `join_axes` and NumPy `np.bool`; package versions are not pinned.
 
+## Attribution and data use
 
-# Movies.dat
-Format - MovieID::Title::Genres
+Use the official [MovieLens 1M documentation and terms](https://files.grouplens.org/datasets/movielens/ml-1m-README.txt). They require acknowledgment, separate permission for redistribution and commercial use, and prohibit implying GroupLens endorsement. Redistribution permission for the inherited archive is not documented here; no repository code license is included.
 
- 
+Dataset citation: F. Maxwell Harper and Joseph A. Konstan, *The MovieLens Datasets: History and Context* (2015), [DOI: 10.1145/2827872](https://doi.org/10.1145/2827872).
